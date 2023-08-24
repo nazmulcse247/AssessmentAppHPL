@@ -20,6 +20,7 @@ import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.nazmul.assessmentapphpl.R;
+import com.nazmul.assessmentapphpl.database.UserPreference;
 import com.nazmul.assessmentapphpl.databinding.FragmentOtpSentBinding;
 
 import java.util.concurrent.TimeUnit;
@@ -29,6 +30,7 @@ public class OtpSentFragment extends Fragment {
 
     private FragmentOtpSentBinding binding;
     private NavController navController;
+    private UserPreference preference;
     public OtpSentFragment() {
         // Required empty public constructor
     }
@@ -42,7 +44,8 @@ public class OtpSentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+
         binding = FragmentOtpSentBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
@@ -51,6 +54,11 @@ public class OtpSentFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+        // Check if user already logged in
+        preference = new UserPreference(requireContext());
+        if (preference.getLoginStatus() != null){
+            navController.navigate(R.id.action_otpSentFragment_to_registerFragment);
+        }
 
         setOnClickListeners();
     }

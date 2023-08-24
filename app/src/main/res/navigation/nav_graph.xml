@@ -19,6 +19,15 @@
             app:destination="@id/otpVerificationFragment"
             app:popUpTo="@id/otpSentFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otpSentFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/otpSentFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/otpVerificationFragment"
@@ -33,5 +42,19 @@
             android:name="verificationId"
             app:argType="string"
             android:defaultValue="null" />
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/otpVerificationFragment"
+            app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.nazmul.assessmentapphpl.ui.fragment.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

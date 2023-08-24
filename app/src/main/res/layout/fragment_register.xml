@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/green_A700"
+    tools:context=".ui.fragment.RegisterFragment">
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registration"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_24ssp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="@dimen/_40sdp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_32sdp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_login"
+        android:background="@drawable/login_bg"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User name"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/_32sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <EditText
+            android:id="@+id/et_user_name"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:hint="@string/user_name"
+            android:textSize="@dimen/_14ssp"
+            android:background="@drawable/et_bg"
+            android:textColor="@color/off_white700"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:inputType="textPersonName"
+            android:padding="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:ems="10"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/et_user_name"
+            app:layout_constraintStart_toStartOf="@id/et_user_name"
+            />
+
+        <EditText
+            android:id="@+id/et_user_email"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:hint="@string/email"
+            android:textSize="@dimen/_14ssp"
+            android:background="@drawable/et_bg"
+            android:textColor="@color/off_white700"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/_8sdp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:ems="10"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_email"
+            />
+
+        <TextView
+            android:id="@+id/tv_user_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone Number"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp"
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/et_user_email"
+            app:layout_constraintStart_toStartOf="@id/et_user_email"
+            />
+
+        <EditText
+            android:id="@+id/et_user_phone_no"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:editable="false"
+            android:textSize="@dimen/_14ssp"
+            android:background="@drawable/et_bg"
+            android:textColor="@color/off_white700"
+            android:padding="@dimen/_8sdp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_password"
+            />
+
+        <Button
+            android:id="@+id/btn_sign_up"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:textSize="@dimen/_14ssp"
+            android:text="@string/sign_up"
+            android:textColor="@color/white"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+            android:background="@drawable/background_button"
+            android:translationZ="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@id/et_user_phone_no"
+            app:layout_constraintStart_toStartOf="@id/et_user_phone_no"
+            app:layout_constraintEnd_toEndOf="@id/et_user_phone_no"
+            />
+
+
+
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

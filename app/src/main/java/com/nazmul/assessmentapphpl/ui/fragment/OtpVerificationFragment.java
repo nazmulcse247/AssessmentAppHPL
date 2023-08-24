@@ -7,6 +7,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,6 +26,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.nazmul.assessmentapphpl.R;
+import com.nazmul.assessmentapphpl.database.UserPreference;
 import com.nazmul.assessmentapphpl.databinding.FragmentOtpVerificationBinding;
 
 import java.util.concurrent.TimeUnit;
@@ -34,6 +37,8 @@ public class OtpVerificationFragment extends Fragment {
     private FragmentOtpVerificationBinding binding;
     private String verificationId;
     private String phoneNumber;
+    private UserPreference preference;
+    private NavController navController;
     public OtpVerificationFragment() {
         // Required empty public constructor
     }
@@ -55,6 +60,7 @@ public class OtpVerificationFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
 
         initView();
         setOnClickListeners();
@@ -99,9 +105,10 @@ public class OtpVerificationFragment extends Fragment {
 
                                 if (task.isSuccessful()) {
                                     //save user info
-                                    //preference.setLoginStatus(true);
-                                    //phoneAuth.setPhoneNumber(number);
+                                    preference.setLoginStatus(phoneNumber);
                                     Toast.makeText(requireContext(), "Verify Successful", Toast.LENGTH_SHORT).show();
+                                    navController.navigate(R.id.action_otpVerificationFragment_to_registerFragment);
+
                                 } else {
                                     Toast.makeText(requireContext(), "The Verification code was entered invalid", Toast.LENGTH_SHORT).show();
                                 }
@@ -144,8 +151,8 @@ public class OtpVerificationFragment extends Fragment {
             OtpVerificationFragmentArgs args = OtpVerificationFragmentArgs.fromBundle(getArguments());
             phoneNumber = args.getPhone();
             verificationId = args.getVerificationId();
+            preference = new UserPreference(requireContext());
             Log.d(TAG, "initView" + phoneNumber + " " + verificationId);
-
             binding.textMobile.setText(String.format("+880-%s",args.getPhone()));
         }
     }
