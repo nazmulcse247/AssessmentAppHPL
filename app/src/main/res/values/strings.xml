@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AssessmentAppHPL</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="enter_the_otp_sent_to">Enter the OTP Sent to</string>
+    <string name="did_t_receive_the_code">did\'t receive the code?</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="verify">Verify</string>
+</resources>
